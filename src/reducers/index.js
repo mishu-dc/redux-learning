@@ -9,7 +9,7 @@ function rootReducer (state = initialState, action){
         case ADD_BRAND:
             console.log("ADD_BRAND state", state);
             console.log("ADD_BRAND action", action);
-            return [...state, action];
+            return [...state.brands, action.brand];
         default:
             return state;
     }
