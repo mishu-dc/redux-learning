@@ -1,5 +1,5 @@
 
-import { ADD_BRAND } from "./action-types";
+import { ADD_BRAND, ADD_PRODUCT, FETCH_PRODUCT, FETCH_BRAND } from "./action-types";
 
 export function addBrand(brand){
     return {
@@ -7,3 +7,11 @@ export function addBrand(brand){
         brand
     }
 }
+
+export function addProduct(product){
+    return {
+        type: ADD_PRODUCT,
+        product
+    }
+}
+

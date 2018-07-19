@@ -1,18 +1,5 @@
-import { ADD_BRAND } from "../actions/action-types";
+import brandReducer from './brandReducer';
+import productReducer from './productReducer';
+import {combineReducers} from 'redux';
 
-const initialState = {
-    brands: []
-  };
-
-function rootReducer (state = initialState, action){
-    switch(action.type){
-        case ADD_BRAND:
-            console.log("ADD_BRAND state", state);
-            console.log("ADD_BRAND action", action);
-            return [...state.brands, action.brand];
-        default:
-            return state;
-    }
-}
-
-export default rootReducer;
+export const rootReducer = combineReducers({brands: brandReducer, prodcuts: productReducer});
