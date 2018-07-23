@@ -4,19 +4,51 @@ import {NETWORK_CALL_START, NETWORK_CALL_END, NETWORK_CALL_ERROR} from '../actio
 let initialState={
     isFetching: false,
     didInvalidate: false,
+    callCount:0,
     status:'',
     errorMessage:'',
     successmessage:''
 }
 
 function networkReducer(state=initialState, action){
+    let nCallCount = state.callCount;
+
     switch(action.type){
         case NETWORK_CALL_START:
-            break;
+            nCallCount = nCallCount + 1;
+            return Object.assign({},
+                    state,
+                    {
+                        isFetching:true, 
+                        callCount: nCallCount
+                    });
+
         case NETWORK_CALL_END:
-            break;            
+            nCallCount = nCallCount>0?nCallCount-1:0;
+
+            return Object.assign({},
+                    state,
+                    {
+                        isFetching:nCallCount==0?false:true,
+                        callCount: nCallCount, 
+                        status:'success',
+                        successmessage: action.message
+                    }
+                );
+                
         case NETWORK_CALL_ERROR:
-            break;            
+            nCallCount = nCallCount>0?nCallCount-1:0;
+
+            return Object.assign({},
+                    state,
+                    {
+                        isFetching:nCallCount==0?false:true,
+                        callCount: nCallCount, 
+                        status:'err',
+                        errorMessage: action.message
+                    }
+                );
+
         default:
             return state;
     }

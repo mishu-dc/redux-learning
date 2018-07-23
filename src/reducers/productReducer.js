@@ -1,4 +1,4 @@
-import {ADD_PRODUCT} from '../actions/action-types';
+import { RECEIVED_PRODUCT } from '../actions/action-types';
 
 let initialState={
     total:0,
@@ -9,13 +9,15 @@ let initialState={
 function productReducer(state=initialState, action){
     switch(action.type)
     {
-        case ADD_PRODUCT:
-            console.log("ADD_PRODUCT state", state);
-            console.log("ADD_PRODUCT action", action);
-            return [...state, action.product];
+        case RECEIVED_PRODUCT:
+            return Object.assign({},
+                    {
+                        total:action.total,
+                        receivedAt: Date.now(),
+                        products: action.result
+                    }
+                );
         default:
-            console.log("default product state", state);
-            console.log("default product action", action);
             return state;
     }
 }

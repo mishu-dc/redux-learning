@@ -1,9 +1,16 @@
 
-export const ADD_BRAND = "ADD_BRAND";
 export const ADD_PRODUCT = "ADD_PRODUCT";
 export const FETCH_PRODUCT = "FETCH_PRODUCT";
+export const RECEIVED_PRODUCT = "RECEIVED_PRODUCT";
+
+export const ADD_BRAND = "ADD_BRAND";
 export const FETCH_BRAND = "FETCH_BRAND";
+export const RECEIVED_BRAND = "RECEIVED_BRAND";
+
 export const USER_LOGIN = "USER_LOGIN";
+export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+export const USER_LOGIN_ERROR = "USER_LOGIN_ERROR";
+
 export const NETWORK_CALL_START = "NETWORK_CALL_START";
 export const NETWORK_CALL_END = "NETWORK_CALL_END";
 export const NETWORK_CALL_ERROR = "NETWORK_CALL_ERROR";
