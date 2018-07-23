@@ -1,6 +1,12 @@
 import {ADD_PRODUCT} from '../actions/action-types';
 
-function productReducer(state=[], action){
+let initialState={
+    total:0,
+    products:[],
+    receivedAt:''
+}
+
+function productReducer(state=initialState, action){
     switch(action.type)
     {
         case ADD_PRODUCT:

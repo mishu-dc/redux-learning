@@ -1,6 +1,12 @@
 import { ADD_BRAND } from "../actions/action-types";
 
-function brandReducer(state = [], action){
+let initialState={
+    total:0,
+    brands:[],
+    receivedAt:''
+}
+
+function brandReducer(state=initialState, action){
     switch(action.type){
         case ADD_BRAND:
             console.log("ADD_BRAND state", state);
