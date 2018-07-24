@@ -19,6 +19,7 @@ function userReducer(state=initialState, action){
             return Object.assign({},
                 state,
                 {
+                    isAuthenticated:false,
                     user:
                     {
                         userName:action.userName,

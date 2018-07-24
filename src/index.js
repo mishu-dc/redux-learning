@@ -8,7 +8,8 @@ import { createStore, applyMiddleware } from "redux";
 import { rootReducer } from "./reducers/index";
 
 import App from './App';
-import {addBrand, addProduct, fetchBrands} from './actions/index';
+import {addBrand, fetchBrands} from './actions/brandActions';
+import {addProduct, fetchProducts} from './actions/productActions';
 
 const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
 

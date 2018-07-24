@@ -12,9 +12,9 @@ function productReducer(state=initialState, action){
         case RECEIVED_PRODUCT:
             return Object.assign({},
                     {
-                        total:action.total,
+                        total:action.payload.total,
                         receivedAt: Date.now(),
-                        products: action.result
+                        brands: action.payload.results
                     }
                 );
         default:
