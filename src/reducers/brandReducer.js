@@ -13,7 +13,7 @@ function brandReducer(state=initialState, action){
                     {
                         total:action.payload.total,
                         receivedAt: Date.now(),
-                        brands: action.payload.result
+                        brands: action.payload.results
                     }
                 );
         default:

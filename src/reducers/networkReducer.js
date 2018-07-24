@@ -45,7 +45,7 @@ function networkReducer(state=initialState, action){
                         isFetching:nCallCount==0?false:true,
                         callCount: nCallCount, 
                         status:'err',
-                        errorMessage: action.message
+                        errorMessage: action.error.message
                     }
                 );
 

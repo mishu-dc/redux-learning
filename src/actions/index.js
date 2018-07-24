@@ -54,17 +54,18 @@ export function fetchBrands(params) {
     return function (dispatch) {
       dispatch(networkCallStart())
 
-      let url='';
+      let url='http://localhost:59821/api/brands/';
 
       return fetch(url)
-        .then (
-          response => response.json(),
-          error => console.log('An error occurred.'),  dispatch(networkCallError())
-        )
-        .then(result =>
-                dispatch(networkCallEnd()),
-                dispatch(receivedBrands())
-            )
+            .then(res => res.json())
+            .then((response) => {
+                    dispatch(networkCallEnd()),
+                    dispatch(receivedBrands(response))
+                },
+                (error) => {
+                    dispatch(networkCallError(error))
+                }
+            );
     }
 }
 
