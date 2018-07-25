@@ -8,7 +8,7 @@ import {combineReducers} from 'redux';
 export const rootReducer = combineReducers(
     {
         brand: brandReducer, 
-        prodcut: productReducer,
+        product: productReducer,
         user: userReducer,
         network:networkReducer
     });
