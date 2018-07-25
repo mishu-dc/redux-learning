@@ -29,7 +29,7 @@ function networkReducer(state=initialState, action){
             return Object.assign({},
                     state,
                     {
-                        isFetching:nCallCount==0?false:true,
+                        isFetching:nCallCount===0?false:true,
                         callCount: nCallCount, 
                         status:'success',
                         successmessage: action.message
@@ -42,7 +42,7 @@ function networkReducer(state=initialState, action){
             return Object.assign({},
                     state,
                     {
-                        isFetching:nCallCount==0?false:true,
+                        isFetching:nCallCount===0?false:true,
                         callCount: nCallCount, 
                         status:'err',
                         errorMessage: action.error.message

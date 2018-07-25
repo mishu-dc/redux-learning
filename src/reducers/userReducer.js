@@ -6,10 +6,10 @@ let initialState={
     user:
     {
         userName:'',
-        password:'',
         accessToken:'',
-        tokenExpires:'',
-        tokenType:''
+        tokenExpireIn:'',
+        tokenType:'',
+        receivedAt:''
     }
 }
 
@@ -22,8 +22,7 @@ function userReducer(state=initialState, action){
                     isAuthenticated:false,
                     user:
                     {
-                        userName:action.userName,
-                        password:action.password
+                        userName:action.payload.userName
                     } 
                 }   
             );
@@ -33,20 +32,26 @@ function userReducer(state=initialState, action){
                 state,
                 {
                     isAuthenticated:true,
+                    message:'success',
                     user:
                     {
-                        accessToken:action.accessToken,
-                        tokenExpires:action.tokenExpires,
-                        tokenType:action.tokenType
+                        userName: action.payload.userName,
+                        accessToken:action.payload.access_token,
+                        tokenExpireIn:action.payload.expires_in,
+                        tokenType:action.payload.token_type,
+                        receivedAt:Date.now()
                     }
                 })
 
         case USER_LOGIN_ERROR:
+            let message = action.payload.error!==undefined?action.payload.error:'';
+            message += action.payload.error_description!==undefined?action.payload.error_description:'';
+
             return Object.assign({},
             state,
             {
                 isAuthenticated:false,
-                message:action.message
+                message:message
             });    
                 
         default:

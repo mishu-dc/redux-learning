@@ -2,7 +2,7 @@ import { RECEIVED_BRAND } from "../actions/action-types";
 
 let initialState={
     total:0,
-    brands:[],
+    items:[],
     receivedAt:''
 }
 
@@ -13,7 +13,7 @@ function brandReducer(state=initialState, action){
                     {
                         total:action.payload.total,
                         receivedAt: Date.now(),
-                        brands: action.payload.results
+                        items: action.payload.items
                     }
                 );
         default:
