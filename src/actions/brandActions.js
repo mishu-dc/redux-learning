@@ -1,4 +1,4 @@
-import { ADD_BRAND, RECEIVED_BRAND  } from "./action-types";
+import { ADD_BRAND, RECEIVED_BRANDS  } from "./action-types";
 import { networkCallStart, networkCallEnd, networkCallError } from './networkActions';
 
 export function addBrand(brand){
@@ -10,7 +10,7 @@ export function addBrand(brand){
 
 export function receivedBrands(response){
     return {
-        type: RECEIVED_BRAND,
+        type: RECEIVED_BRANDS,
         payload: response
     }
 }

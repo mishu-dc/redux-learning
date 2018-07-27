@@ -1,5 +1,5 @@
 import { networkCallStart, networkCallEnd, networkCallError } from './networkActions';
-import { ADD_PRODUCT, RECEIVED_PRODUCT  } from "./action-types";
+import { ADD_PRODUCT, RECEIVED_PRODUCTS  } from "./action-types";
 
 export function addProduct(product){
     return {
@@ -10,7 +10,7 @@ export function addProduct(product){
 
 export function receivedProducts(response){
     return {
-        type: RECEIVED_PRODUCT,
+        type: RECEIVED_PRODUCTS,
         payload: response
     }
 }

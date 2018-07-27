@@ -1,4 +1,4 @@
-import { RECEIVED_PRODUCT } from '../actions/action-types';
+import { RECEIVED_PRODUCTS } from '../actions/action-types';
 
 let initialState={
     total:0,
@@ -9,7 +9,7 @@ let initialState={
 function productReducer(state=initialState, action){
     switch(action.type)
     {
-        case RECEIVED_PRODUCT:
+        case RECEIVED_PRODUCTS:
             return Object.assign({},
                     {
                         total:action.payload.total,

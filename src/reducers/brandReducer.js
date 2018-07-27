@@ -1,4 +1,4 @@
-import { RECEIVED_BRAND } from "../actions/action-types";
+import { RECEIVED_BRANDS } from "../actions/action-types";
 
 let initialState={
     total:0,
@@ -8,7 +8,7 @@ let initialState={
 
 function brandReducer(state=initialState, action){
     switch(action.type){
-        case RECEIVED_BRAND:
+        case RECEIVED_BRANDS:
             return Object.assign({},
                     {
                         total:action.payload.total,
