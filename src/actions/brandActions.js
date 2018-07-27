@@ -1,4 +1,4 @@
-import { ADD_BRAND, FETCH_BRAND, RECEIVED_BRAND  } from "./action-types";
+import { ADD_BRAND, RECEIVED_BRAND  } from "./action-types";
 import { networkCallStart, networkCallEnd, networkCallError } from './networkActions';
 
 export function addBrand(brand){
@@ -48,7 +48,7 @@ export function fetchBrands(params) {
         return fetch(url)
             .then(res => res.json())
             .then((response) => {
-                    dispatch(networkCallEnd()),
+                    dispatch(networkCallEnd())
                     dispatch(receivedBrands(response))
                 },
                 (error) => {

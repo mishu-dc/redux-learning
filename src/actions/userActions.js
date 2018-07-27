@@ -47,16 +47,16 @@ export function verifyLogin(credentials){
                 return response.json();
             }).then((response) => {
                     if(response.error!==undefined){
-                        dispatch(networkCallError( {'message': response.error_description})),
+                        dispatch(networkCallError( {'message': response.error_description}))
                         dispatch(loginFailed(response))
                     }
                     else{
-                        dispatch(networkCallEnd({'message':'user logged in successfully'})),
+                        dispatch(networkCallEnd({'message':'user logged in successfully'}))
                         dispatch(loginSuccess(response))
                     }
                 },
                 (error) => {
-                    dispatch(networkCallError({'message': error})),
+                    dispatch(networkCallError({'message': error}))
                     loginFailed(error)
                 }
             )

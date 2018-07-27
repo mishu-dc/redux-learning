@@ -1,5 +1,5 @@
 import { networkCallStart, networkCallEnd, networkCallError } from './networkActions';
-import { ADD_PRODUCT, FETCH_PRODUCT, RECEIVED_PRODUCT  } from "./action-types";
+import { ADD_PRODUCT, RECEIVED_PRODUCT  } from "./action-types";
 
 export function addProduct(product){
     return {
@@ -53,7 +53,7 @@ export function fetchProducts(params) {
         return fetch(url)
             .then(res => res.json())
             .then((response) => {
-                    dispatch(networkCallEnd()),
+                    dispatch(networkCallEnd())
                     dispatch(receivedProducts(response))
                 },
                 (error) => {
