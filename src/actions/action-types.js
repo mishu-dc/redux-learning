@@ -8,6 +8,7 @@ export const FETCH_BRAND = "FETCH_BRAND";
 export const RECEIVED_BRAND = "RECEIVED_BRAND";
 
 export const USER_LOGIN = "USER_LOGIN";
+export const USER_LOGOUT = "USER_LOGOUT";
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
 export const USER_LOGIN_ERROR = "USER_LOGIN_ERROR";
 

@@ -27,8 +27,23 @@ function userReducer(state=initialState, action){
                 }   
             );
 
+        case USER_LOGOUT:
+            return Object.assign({},
+                state,
+                {
+                    isAuthenticated:false,
+                    message:'',
+                    user:
+                    {
+                        userName:'',
+                        accessToken:'',
+                        tokenExpireIn:'',
+                        tokenType:'',
+                        receivedAt:''
+                    }
+                });
+
         case USER_LOGIN_ERROR:
-            console.log("USER_LOGIN_ERROR", action);
             return Object.assign({},
                 state,
                 {

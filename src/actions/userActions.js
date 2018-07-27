@@ -1,4 +1,4 @@
-import {USER_LOGIN, USER_LOGIN_SUCCESS, USER_LOGIN_ERROR} from './action-types';
+import {USER_LOGIN, USER_LOGOUT, USER_LOGIN_SUCCESS, USER_LOGIN_ERROR} from './action-types';
 import { networkCallStart, networkCallEnd, networkCallError } from './networkActions';
 
 
@@ -20,6 +20,12 @@ export function userLogin(credentials){
     return {
         type: USER_LOGIN,
         payload: credentials
+    }
+}
+
+export function userLogout(){
+    return {
+        type:USER_LOGOUT,
     }
 }
 
