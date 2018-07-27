@@ -53,7 +53,7 @@ export function fetchProducts(params) {
         return fetch(url)
             .then(res => res.json())
             .then((response) => {
-                    dispatch(networkCallEnd())
+                    dispatch(networkCallEnd({'message':'products fetched successfully'}))
                     dispatch(receivedProducts(response))
                 },
                 (error) => {

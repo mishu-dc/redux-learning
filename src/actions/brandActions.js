@@ -48,7 +48,7 @@ export function fetchBrands(params) {
         return fetch(url)
             .then(res => res.json())
             .then((response) => {
-                    dispatch(networkCallEnd())
+                    dispatch(networkCallEnd({'message':'brands fetched successfully'}))
                     dispatch(receivedBrands(response))
                 },
                 (error) => {

@@ -8,8 +8,12 @@ import { createStore, applyMiddleware } from "redux";
 import { rootReducer } from "./reducers/index";
 
 import App from './App';
-import {addBrand, fetchBrands} from './actions/brandActions';
-import {addProduct, fetchProducts} from './actions/productActions';
+import { addBrand, fetchBrands } from './actions/brandActions';
+import { addProduct, fetchProducts } from './actions/productActions';
+import { addDistributor, fetchDistributors } from './actions/distributorActions';
+import { addFieldforce, fetchFieldforces } from './actions/fieldforceActions';
+import { addMarket, fetchMarkets } from './actions/marketActions';
+
 import {verifyLogin} from './actions/userActions';
 
 const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
@@ -20,6 +24,12 @@ window.addProduct = addProduct;
 window.fetchBrands = fetchBrands;
 window.fetchProducts = fetchProducts;
 window.verifyLogin = verifyLogin;
+window.fetchDistributors = fetchDistributors;
+window.fetchFieldforces = fetchFieldforces;
+window.fetchMarkets = fetchMarkets;
+window.addDistributor = addDistributor;
+window.addFieldforce = addFieldforce;
+window.addMarket = addMarket;
 
 store.subscribe(()=> console.log("store", store.getState()));
 
