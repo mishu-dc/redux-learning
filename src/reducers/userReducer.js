@@ -27,6 +27,23 @@ function userReducer(state=initialState, action){
                 }   
             );
 
+        case USER_LOGIN_ERROR:
+            console.log("USER_LOGIN_ERROR", action);
+            return Object.assign({},
+                state,
+                {
+                    isAuthenticated:false,
+                    message:action.payload.error_description,
+                    user:
+                    {
+                        userName:'',
+                        accessToken:'',
+                        tokenExpireIn:'',
+                        tokenType:'',
+                        receivedAt:''
+                    }
+                });
+
         case USER_LOGIN_SUCCESS:
             return Object.assign({},
                 state,
@@ -41,18 +58,7 @@ function userReducer(state=initialState, action){
                         tokenType:action.payload.token_type,
                         receivedAt:Date.now()
                     }
-                })
-
-        case USER_LOGIN_ERROR:
-            let message = action.payload.error!==undefined?action.payload.error:'';
-            message += action.payload.error_description!==undefined?action.payload.error_description:'';
-
-            return Object.assign({},
-            state,
-            {
-                isAuthenticated:false,
-                message:message
-            });    
+                });
                 
         default:
             return state;

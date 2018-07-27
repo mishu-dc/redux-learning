@@ -38,22 +38,21 @@ export function verifyLogin(credentials){
                     "Content-Type": "text/plain"
                 },
             }).then(function(response){
-                if(!response.ok){
-                    throw Error(response.json());
-                }
                 return response.json();
-            })
-            .then((response) => {
-                    dispatch(networkCallEnd())
-                    dispatch(loginSuccess(response))
+            }).then((response) => {
+                    if(response.error!==undefined){
+                        dispatch(networkCallError( {'message': response.error_description})),
+                        dispatch(loginFailed(response))
+                    }
+                    else{
+                        dispatch(networkCallEnd({'message':'user logged in successfully'})),
+                        dispatch(loginSuccess(response))
+                    }
                 },
                 (error) => {
-                    dispatch(networkCallError(error))
+                    dispatch(networkCallError({'message': error})),
                     loginFailed(error)
                 }
-            ).catch(function(error){
-                dispatch(networkCallError(error))
-                loginFailed(error)
-            });
+            )
     }
 }

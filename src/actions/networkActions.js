@@ -6,15 +6,16 @@ export function networkCallStart(){
     }
 }
 
-export function networkCallEnd(){
+export function networkCallEnd(response){
     return {
-        type:NETWORK_CALL_END
+        type:NETWORK_CALL_END,
+        payload: response
     }
 }
 
-export function networkCallError(error){
+export function networkCallError(response){
     return {
         type:NETWORK_CALL_ERROR,
-        error
+        payload: response
     }
 }
