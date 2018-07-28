@@ -3,17 +3,19 @@ import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider } from 'react-redux';
+
 import thunkMiddleware from 'redux-thunk'
 import { createStore, applyMiddleware } from "redux";
-import { rootReducer } from "./reducers/index";
+import  rootReducer  from "./reducers/index";
 
 import App from './App';
+
 import { addBrand, fetchBrands } from './actions/brandActions';
 import { addProduct, fetchProducts } from './actions/productActions';
 import { addDistributor, fetchDistributors } from './actions/distributorActions';
 import { addFieldforce, fetchFieldforces } from './actions/fieldforceActions';
 import { addMarket, fetchMarkets } from './actions/marketActions';
-
 import {verifyLogin} from './actions/userActions';
 
 const store = createStore(rootReducer,applyMiddleware(thunkMiddleware));
@@ -33,4 +35,4 @@ window.addMarket = addMarket;
 
 store.subscribe(()=> console.log("store", store.getState()));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Provider store = {store}><App /></Provider>, document.getElementById('root'));

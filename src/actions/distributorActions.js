@@ -15,6 +15,11 @@ export function receivedDistributors(response){
     }
 }
 
+function isValid(item){
+    if(item===undefined) return false;
+    if(item.length===0) return false;
+    return true;
+}
 
 export function fetchDistributors(params){
     return function(dispatch){
@@ -23,19 +28,19 @@ export function fetchDistributors(params){
         let url='http://localhost:59821/api/distributors?';
 
         if(params!==undefined){          
-            if(this.isValid(params.code)){
+            if(isValid(params.code)){
                 url += "code=" + params.code + "&";
             }
 
-            if(this.isValid(params.name)){
+            if(isValid(params.name)){
                 url += "name=" + params.name + "&";
             }
 
-            if(this.isValid(params.page)){
+            if(isValid(params.page)){
                 url += "page=" + params.page + "&";;
             }
 
-            if(this.isValid(params.size)){
+            if(isValid(params.size)){
                 url += "size=" + params.size + "&";;
             }
         }  

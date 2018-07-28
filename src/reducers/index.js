@@ -8,7 +8,7 @@ import marketReducer from './marketReducer';
 
 import {combineReducers} from 'redux';
 
-export const rootReducer = combineReducers(
+const rootReducer = combineReducers(
     {
         brand: brandReducer, 
         product: productReducer,
@@ -18,3 +18,5 @@ export const rootReducer = combineReducers(
         user: userReducer,
         network:networkReducer
     });
+
+export default  rootReducer;   
